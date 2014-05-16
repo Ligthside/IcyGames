@@ -54,4 +54,29 @@ public class GameCamera : MonoBehaviour {
 		transform.LookAt(car);
 		
 	}
+
+	void Update(){
+		ZoomScroll();
+	}
+
+	void ZoomScroll(){
+		if(Input.GetAxis("Mouse Scroll")>0){
+			height = height - 0.5f;
+			distance = distance - 0.2f;
+		}
+		else if(Input.GetAxis("Mouse Scroll")<0){
+			height = height + 0.5f;
+			distance = distance + 0.2f;
+		}
+
+		if(height < 3.8f)
+			height = 3.8f;
+		if(height >12.38f)
+			height = 12.38f;
+		if(distance >4.6f)
+			distance = 4.6f;
+		if(distance < 1.8f)
+			distance = 1.8f;
+
+	}
 }
